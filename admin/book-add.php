@@ -1,26 +1,13 @@
 <?php
-include("confs/auth.php");
-?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-
-<?php
-include("confs/config.php");
-$title=$_POST['title'];
-$author=$_POST['author'];
-$summary=$_POST['summary'];
-$price=$_POST['price'];
-$category_id=$_POST['category_id'];
-$cover=$_FILES['cover'];
-$tmp=$_FILES['cover']['tmp_name'];
-
-// print_r($_FILES);
-
-if($cover) {
+ include("confs/config.php");
+ $title = $_POST['title'];
+ $author = $_POST['author'];
+ $summary = $_POST['summary'];
+ $price = $_POST['price'];
+ $category_id = $_POST['category_id'];
+ $cover = $_FILES['cover']['name'];
+ $tmp = $_FILES['cover']['tmp_name'];
+ if($cover) {
  move_uploaded_file($tmp, "covers/$cover");
  }
 
@@ -32,9 +19,5 @@ if($cover) {
  '$category_id', '$cover', now(), now()
  )";
  mysqli_query($conn, $sql);
- header("location: book-list.php");
-
-
+echo "<script>window.open('book-list.php','_self')</script>";
 ?>
-</body>
-</html>

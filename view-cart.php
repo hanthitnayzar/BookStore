@@ -70,7 +70,11 @@ include("admin/confs/config.php");
 			<input type="text" name="name">
 
 			<label for="email">Email</label>
-			<input type="text" name="email">                 
+			<input type="text" name="email"> 
+
+			<label for="phone">Phone</label>
+			<input type="phone" name="phone">                 
+                
 
 			<label for="address">Address</label>
 			<input type="address" name="address">
